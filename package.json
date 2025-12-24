@@ -36,8 +36,8 @@
     "contributions": {
         "menu": [
             {
-                "path": "Extension/Google Sheets Manager",
-                "label": "Open Sheets Manager",
+                "path": "Qwappy",
+                "label": "Google Sheets Manager",
                 "message": "open-panel"
             }
         ],
