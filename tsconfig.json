@@ -3,6 +3,6 @@
     "compilerOptions": {
         "outDir": "./dist",
         "rootDir": "./source",
-        "types": ["@cocos/creator-types/editor"]
+        "types": []
     }
 }
