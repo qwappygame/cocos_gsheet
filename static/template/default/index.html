@@ -1,0 +1,23 @@
+<div style="padding: 20px; color: #fff; background: #1e1e1e; height: 100%; overflow-y: auto;">
+    <h2 style="margin-bottom: 20px; color: #fff;">Google Sheets Manager</h2>
+    
+    <div style="margin-bottom: 20px; padding: 15px; background: #252526; border-radius: 4px;">
+        <label style="display: block; margin-bottom: 5px; color: #fff;">Sheet Name:</label>
+        <input type="text" id="sheetName" placeholder="Sheet Name" style="width: 100%; padding: 8px; margin-bottom: 10px; background: #1e1e1e; color: #fff; border: 1px solid #3e3e42; border-radius: 3px; box-sizing: border-box;">
+        
+        <label style="display: block; margin-bottom: 5px; color: #fff;">Google Sheets URL:</label>
+        <input type="text" id="sheetUrl" placeholder="https://docs.google.com/spreadsheets/d/..." style="width: 100%; padding: 8px; margin-bottom: 10px; background: #1e1e1e; color: #fff; border: 1px solid #3e3e42; border-radius: 3px; box-sizing: border-box;">
+        
+        <button id="addBtn" style="padding: 8px 16px; background: #0e639c; color: #fff; border: none; cursor: pointer; border-radius: 3px; font-weight: bold;">Add</button>
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #fff; margin-bottom: 10px;">Sheets List</h3>
+        <div id="listContainer"></div>
+    </div>
+    
+    <div style="display: flex; gap: 10px;">
+        <button id="downloadAllJson" style="padding: 10px 20px; background: #0f0; color: #fff; border: none; cursor: pointer; border-radius: 3px; font-weight: bold; flex: 1;">Download All JSON</button>
+        <button id="downloadAllTS" style="padding: 10px 20px; background: #00f; color: #fff; border: none; cursor: pointer; border-radius: 3px; font-weight: bold; flex: 1;">Download All TypeScript</button>
+    </div>
+</div>
