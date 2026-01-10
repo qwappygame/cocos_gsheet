@@ -7,7 +7,7 @@ const https = require('https');
 const { URL } = require('url');
 
 // Sheets Manager 유틸리티
-const SHEETS_DATA_PATH = join(Editor.Project.path, 'extensions/gsheet/data/sheets.json');
+const SHEETS_DATA_PATH = join(Editor.Project.path, 'extensions/GoogleSheetsManager/data/sheets.json');
 
 function loadSheetsData() {
     if (existsSync(SHEETS_DATA_PATH)) {

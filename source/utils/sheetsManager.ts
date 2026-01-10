@@ -9,7 +9,7 @@ export interface SheetData {
     url: string;
 }
 
-const SHEETS_DATA_PATH = join(Editor.Project.path, 'extensions/gsheet/data/sheets.json');
+const SHEETS_DATA_PATH = join(Editor.Project.path, 'extensions/GoogleSheetsManager/data/sheets.json');
 
 export function loadSheetsData(): SheetData[] {
     if (existsSync(SHEETS_DATA_PATH)) {
@@ -51,15 +51,15 @@ export function downloadCsv(url: string): Promise<string> {
         const urlObj = new URL(url);
         const client = urlObj.protocol === 'https:' ? https : http;
         
-        client.get(url, (res) => {
+        client.get(url, (res: http.IncomingMessage) => {
             let data = '';
-            res.on('data', (chunk) => {
+            res.on('data', (chunk: any) => {
                 data += chunk.toString();
             });
             res.on('end', () => {
                 resolve(data);
             });
-        }).on('error', (err) => {
+        }).on('error', (err: Error) => {
             reject(err);
         });
     });
