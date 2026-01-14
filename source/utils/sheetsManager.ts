@@ -40,7 +40,7 @@ export function convertToCsvUrl(url: string): string {
         const urlID = arr[5];
         const gid = f[1].replace(/\D/g, '');
         
-        return `https://docs.google.com/spreadsheets/d/${urlID}/export?format=csv&gid=${gid}`;
+        return `https://docs.google.com/spreadsheets/d/${urlID}/export?format=tsv&gid=${gid}`;
     } catch (err: any) {
         throw new Error('URL 변환 실패: ' + err.message);
     }
@@ -68,11 +68,11 @@ export function downloadCsv(url: string): Promise<string> {
 export function parseCsvToJson(csv: string, sheetName: string): string {
     const lines = csv.replace(/\r/g, '').split('\n');
     if (lines.length < 4) {
-        throw new Error('CSV 형식이 올바르지 않습니다.');
+        throw new Error('TSV 형식이 올바르지 않습니다.');
     }
     
-    const columnNames = lines[0].split(',');
-    const types = lines[1].split(',');
+    const columnNames = lines[0].split('\t');
+    const types = lines[1].split('\t');
     
     const rowKeys = columnNames.slice(1);
     const typeKeys = types.slice(1);
@@ -94,7 +94,7 @@ export function parseCsvToJson(csv: string, sheetName: string): string {
     const dataMap = new Map<string, any>();
     
     for (let y = 3; y < lines.length; y++) {
-        const row = lines[y].split(',');
+        const row = lines[y].split('\t');
         if (!row[0]) continue;
         
         const key = row[0].trim();

@@ -11,8 +11,8 @@ interface CsvHeader {
 
 export function parseCsvHeader(csv: string): CsvHeader {
     const lines = csv.replace(/\r/g, '').split('\n');
-    const columnNames = lines[0].split(',').filter(name => name.trim());
-    const types = lines[1].split(',').filter(type => type.trim());
+    const columnNames = lines[0].split('\t').filter(name => name.trim());
+    const types = lines[1].split('\t').filter(type => type.trim());
     
     const rowKeys = columnNames.slice(1);
     const typeKeys = types.slice(1);
